@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Frikr - Como Flicker pero en friki</title>
-</head>
-<body>
+{% extends 'base.html'%}
+{% block section %}
     <h1>Bienvenido al Frikr</h1>
     <p>Frikr - Como Flicker pero en friki </p>
     <h2>Últimas fotos publicadas</h2>
     {% for photo in photos_list %}
-        <img src="{{ photo.url }}" alt="{{ photo.name }}" height="150">
+        <a href="{% url 'photo_detail' photo.pk %}">
+            <img src="{{ photo.url }}" alt="{{ photo.name }}" height="150">
+        </a>
     {% endfor %}
-
-</body>
-</html>
+{% endblock %}
